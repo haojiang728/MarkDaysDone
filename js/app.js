@@ -113,9 +113,8 @@
 
   function renderStats() {
     const marks = selectedCalendar().marks || {};
-    const now = new Date();
-    const year = String(now.getFullYear()).padStart(4, "0");
-    const month = `${year}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+    const year = String(displayedYear).padStart(4, "0");
+    const month = `${year}-${String(displayedMonth + 1).padStart(2, "0")}`;
     const entries = Object.entries(marks).filter(([, mark]) => window.MarkDaysCalendar.getSymbol(mark) !== "");
     elements["stat-all"].textContent = String(entries.length);
     elements["stat-year"].textContent = String(entries.filter(([date]) => date.startsWith(`${year}-`)).length);
